@@ -27,27 +27,30 @@ function mario() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 1 CODE HERE
+document.getElementById("mario-easy-output").style.fontFamily="monospace";
 let p = document.getElementById("mario-easy-output");
+let result = "";
 height=0;
 x=0;
 while(height<1 || height>23 || height%1!=0) {
   if (x==1){
-    alert("Heights must be integers between 1 and 23.")
+    alert("Heights must be integers between 1 and 23.");
   }
-  height=prompt("Please enter an integer from 1 to 23.");
-  p.innerHTML="";
+  height=Number(prompt("Please enter an integer from 1 to 23."));
+  result="";
   x=1;
 }
 for (let i = 0; i<height; i++) {
   for (let j = 0; j<height+1; j++){
     if(j>(height-i)-2){
-      p.innerHTML+="#";
+      result+="#";
     }else{
-      p.innerHTML+=" ";
+      result+="&nbsp;";
     }
   }
-  p.innerHTML+="<br/>";
+  result+="<br/>";
 }
+p.innerHTML = "<code>" + result + "</code>";
   ////////////////////////// DO NOT MODIFY
   check('mario', height); // DO NOT MODIFY
   ////////////////////////// DO NOT MODIFY
@@ -82,7 +85,36 @@ function marioAgain() {
   ////////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 2 CODE HERE
-
+  document.getElementById("mario-hard-output").style.fontFamily="monospace";
+  let p = document.getElementById("mario-hard-output");
+  let result = "";
+  height=0;
+  x=0;
+  while(height<1 || height>23 || height%1!=0) {
+    if (x==1){
+      alert("Heights must be integers between 1 and 23.");
+    }
+    height=Number(prompt("Please enter an integer from 1 to 23."));
+    result="";
+    x=1;
+  }
+  for (let i = 0; i<height; i++) {
+    for (let j = 0; j<height+1; j++){
+      if(j>(height-i)-2){
+        result+="#";
+      }else{
+        result+="&nbsp;";
+      }
+    }
+    result+="&nbsp;&nbsp;"
+    for (let j = 0; j<height+1; j++){
+      if(j<i+2){
+        result+="#";
+      }
+    }
+    result+="<br/>";
+  }
+  p.innerHTML = "<code>" + result + "</code>";
   //////////////////////////////// DO NOT MODIFY
   check('mario-again', height); // DO NOT MODIFY
   //////////////////////////////// DO NOT MODIFY
@@ -135,7 +167,20 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
-
+card=prompt("Input a credit card number.")
+let p = document.getElementById("credit-output");
+sum = 0;
+for(let i = 0; i<card.length; i++){
+  if(i%2==card.length%2){
+    sum+=card[i]*2;
+  }else{
+    sum+=card[i];
+  }
+}
+sum%=10
+if(sum!=0){
+  alert("Invalid credit card number.")
+}
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
