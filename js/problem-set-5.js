@@ -167,20 +167,33 @@ function credit() {
   //////////// DO NOT MODIFY
 
   // WRITE YOUR EXERCISE 3 CODE HERE
-card=prompt("Input a credit card number.")
+card=prompt("Input a credit card number.");
 let p = document.getElementById("credit-output");
-sum = 0;
+let sum = 0;
 for(let i = 0; i<card.length; i++){
   if(i%2==card.length%2){
-    sum+=card[i]*2;
+    if(card[i]>=5){
+      sum+=Number(card[i])*2-9;
+    }else{
+      sum+=Number(card[i])*2;
+    }
   }else{
-    sum+=card[i];
+    sum+=Number(card[i]);
   }
 }
-sum%=10
+sum%=10;
 if(sum!=0){
-  alert("Invalid credit card number.")
+  p.innerHTML='<img src="images/invalid.png"/>';
+}else if(card.length==15 && card[0]==3 && (card[1]==4 || card[1]==7)){
+  p.innerHTML='<img src="images/amex.png"/>';
+}else if(card.length==16 && card[0]==5 && 0<card[1]<6){
+  p.innerHTML='<img src="images/mastercard.png"/>';
+}else if((card.length==13 || card.length==16) && card[0]==4){
+  p.innerHTML='<img src="images/visa.png"/>';
+}else{
+  p.innerHTML='<img src="images/invalid.png"/>';
 }
+card=Number(card);
   /*
    * NOTE: After reading in the card number and storing it in the 'card'
    *       variable, do not modify it. If you find it necessary to manipulate
@@ -219,7 +232,27 @@ if(sum!=0){
 function guess() {
 
   // WRITE YOUR EXERCISE 4 CODE HERE
-
+let random = Math.floor(Math.random()*1000)+1;
+let number = 0;
+let guesses=0;
+let output="";
+let p=document.getElementById("guess-output");
+while(number!=random){
+  if((number<1 || number>1000 || number%1!=0) && guesses>0){
+    number=Number(prompt("That is not a valid input. Pick a number from 1 to 1000."));
+    guesses--;
+  }else if(guesses==0){
+    number=Number(prompt("Pick a number from 1 to 1000."));
+  }else if(number<random){
+    number=Number(prompt("That guess was too low. Pick a number from 1 to 1000."));
+  }else if(number>random){
+    number=Number(prompt("That guess was too high. Pick a number from 1 to 1000."));
+  }
+  guesses++;
+}
+  output="The number was " + random;
+  output+="<br/>You took " + guesses + " guesses";
+  p.innerHTML=output;
   ////////////////// DO NOT MODIFY
   check('guess'); // DO NOT MODIFY
   ////////////////// DO NOT MODIFY
@@ -254,7 +287,26 @@ function hurricane() {
   ///////////////// DO NOT MODIFY
   let windspeed; // DO NOT MODIFY
   ///////////////// DO NOT MODIFY
-
+let p = document.getElementById("hurricane-output")
+windspeed=0;
+while(windspeed<=0 || windspeed%1!=0){
+windspeed=Number(prompt("Pick a windspeed that is a positive integer."))
+}
+if(windspeed>156){
+  p.innerHTML="Category 5 Hurricane."
+}else if(windspeed>129){
+  p.innerHTML="Category 4 Hurricane."
+}else if(windspeed>110){
+  p.innerHTML="Category 3 Hurricane."
+}else if(windspeed>95){
+  p.innerHTML="Category 2 Hurricane."
+}else if(windspeed>73){
+  p.innerHTML="Category 1 Hurricane."
+}else if(windspeed>38){
+  p.innerHTML="Tropical Storm."
+}else{
+  p.innerHTML="The skies are calm..."
+}
   ///////////////////////////////// DO NOT MODIFY
   check('hurricane', windspeed); // DO NOT MODIFY
   ///////////////////////////////// DO NOT MODIFY
@@ -284,6 +336,34 @@ function gymnastics() {
   let total = 0; //// DO NOT MODIFY
   let scores = []; // DO NOT MODIFY
   /////////////////// DO NOT MODIFY
+let score;
+let total2=0;
+let discarded = [];
+let k;
+let p = document.getElementById("gymnastics-output");
+for(let i = 0; i<6; i++){
+  k=0
+  score = -1;
+  while (score<0 || score>10 || score*10%1!=0){
+    if(k==1){
+    score=Number(prompt("Your last input was invalid. Choose a score from 0.0 to 10.0."));
+  }else{
+    score=Number(prompt("Choose a score from 0.0 to 10.0."));
+  }
+    k=1
+  }
+  scores.push(score);
+}
+for(let j = 0; j<6; j++){
+  total+=scores[j];
+}
+total2=total;
+discarded.push(Math.min(...scores));
+total2-=Math.min(...scores);
+discarded.push(Math.max(...scores));
+total2-=Math.max(...scores);
+let result = `Discarded: ${discarded[0]}, ${discarded[1]}<br/>Score: ${(total2/4).toFixed(2)}`;
+p.innerHTML=result;
 
   /*
    * NOTE: The 'total' variable should be representative of the sum of all
@@ -343,6 +423,45 @@ function reportCard() {
   let quizzes = 0; //// DO NOT MODIFY
   let homeworks = 0; // DO NOT MODIFY
   ///////////////////// DO NOT MODIFY
+
+  let p = document.getElementById("report-card-output");
+  let grade = -2;
+  while(grade!=-1){
+    while((grade<0 || grade>100 || grade*10%1!=0) && grade!=-1){
+      grade = Number(prompt("Enter a test grade from 0.0 to 100.0."));
+    }
+    if(grade!=-1){
+      tests++;
+      testTotal+=grade;
+      grade=-2   ;
+    }
+  }
+  grade=-2;
+  while(grade!=-1){
+    while((grade<0 || grade>100 || grade*10%1!=0) && grade!=-1){
+      grade = Number(prompt("Enter a quiz grade from 0.0 to 100.0."))
+    }
+    if(grade!=-1){
+      quizzes++;
+      quizTotal+=grade;
+      grade=-2;
+    }
+  }
+  grade=-2;
+  while(grade!=-1){
+    while((grade<0 || grade>100 || grade*10%1!=0) && grade!=-1){
+      grade = Number(prompt("Enter a homework grade from 0.0 to 100.0."))
+    }
+    if(grade!=-1){
+      homeworks++;
+      homeworkTotal+=grade;
+      grade=-2;
+    }
+  }
+  let gradeAverage=testTotal*0.6/tests+quizTotal*0.3/quizzes+homeworkTotal*0.1/homeworks;
+  let result = `Tests: ${(testTotal/tests).toFixed(2)}<br/>Quizzes: ${(quizTotal/quizzes).toFixed(2)}<br/>Homework: ${(homeworkTotal/homeworks).toFixed(2)}<br/>Grade: ${gradeAverage.toFixed(2)}`;
+  p.innerHTML=result;
+
 
   /*
    * NOTE: The 'tests', 'quizzes', and 'homeworks' variables should be
