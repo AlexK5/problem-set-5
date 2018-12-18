@@ -104,15 +104,15 @@ function credit() { //creates a function called credit
     }
   }
 
-  let prev;
-  if (card !== null) {
-    let number = card;
-    let sumMultDigits = 0;
-    let sumNonMultDigits = 0;
-    let numDigits = 0;
-    let current = -1;
-    let previous = -1;
-    let multiply = false;
+  let prev; //creates a variable called prev
+  if (card !== null) { //checks if card has a valid value
+    let number = card; //creates a variable called number and sets its value to card
+    let sumMultDigits = 0; //creates a variable called summultdigits and sets it to zero
+    let sumNonMultDigits = 0; //creates a variable called sumnonmultdigits and sets it to zero
+    let numDigits = 0; //creates a variable called numdigits and sets it to zero
+    let current = -1; //creates a variable called current and sets it to -1
+    let previous = -1; //creates a variable called previous and sets it to -1
+    let multiply = false; //creates a variable called multiply and sets it to false
 
     while (number > 0) {
       digit = number % 10;
