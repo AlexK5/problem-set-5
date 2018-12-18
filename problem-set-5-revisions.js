@@ -114,40 +114,40 @@ function credit() { //creates a function called credit
     let previous = -1; //creates a variable called previous and sets it to -1
     let multiply = false; //creates a variable called multiply and sets it to false
 
-    while (number > 0) {
-      digit = number % 10;
-      numDigits++;
+    while (number > 0) { //creates a while loop that works while number is greater than zero
+      digit = number % 10; //sets digit to the remainder of number when divided by 10
+      numDigits++; //increases the value of numdigits by one
 
-      let tmp = current;
-      current = digit;
-      previous = tmp;
+      let tmp = current; //creats a variable called tmp and sets its value to current
+      current = digit; //sets current's value to digit
+      previous = tmp; //sets previous's value to digit
 
-      if (multiply) {
-        var product = digit * 2;
-        var sum = 0;
+      if (multiply) { //checks whether multiply is true
+        var product = digit * 2; //creates a variable called product and sets it to double the value of digit
+        var sum = 0; //creats a variable called sum and sets it to zero
 
-        while (product > 0) {
-          let temp = product % 10;
-          sum = sum + temp;
-          product = Math.floor(product / 10);
+        while (product > 0) { //creates a while loop that executes while product's value is positive
+          let temp = product % 10; //creates a variable called temp and sets it to the remainder of product when divided by ten
+          sum = sum + temp; //increases sum's value by temp
+          product = Math.floor(product / 10); //sets product to the largest integer that is less than or equal to product divided by ten
         }
 
-        sumMultDigits = sumMultDigits + sum;
-      } else {
-        sumNonMultDigits = sumNonMultDigits + digit;
+        sumMultDigits = sumMultDigits + sum; //increases summultdigits by sum
+      } else { //executes when multiply is false
+        sumNonMultDigits = sumNonMultDigits + digit; //increases sumnonmultdigits by digit
       }
 
-      multiply = !multiply;
-      number = Math.floor(number / 10);
+      multiply = !multiply; //changes multiply to false if it is true and true if it is false
+      number = Math.floor(number / 10); //sets number to the greatest integer that is less than or equal to number divided by ten
     }
 
-    let checksum = ((sumNonMultDigits + sumMultDigits) % 10);
-    if (checksum === 0) {
-      if (current === 4) {
-        if (numDigits === 13 || numDigits === 16) {
-          prev = document.getElementById("cc");
-          if (prev) {
-            prev.parentNode.removeChild(prev);
+    let checksum = ((sumNonMultDigits + sumMultDigits) % 10); //creates a variable called checksum and sets it to the remainder of the sum of sumnonmultdigits and summultdigits when divided by ten
+    if (checksum === 0) { //checks if checksum is a number equal to zero
+      if (current === 4) { //checks if current is a number equal to four
+        if (numDigits === 13 || numDigits === 16) { //checks if numdigits is a number equal to 13 or 16
+          prev = document.getElementById("cc"); //sets prev to the element with the id "cc"
+          if (prev) { //checks if prev is true or a truthy value
+            prev.parentNode.removeChild(prev); //removes prev in html
           }
 
           let visa = document.createElement("img");
