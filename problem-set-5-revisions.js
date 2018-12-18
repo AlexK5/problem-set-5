@@ -6,101 +6,101 @@ function mario() { //creates a function called mario
   let height = -1; //creates a variable called height and sets it to -1
 
   while (height < 1 || height > 23) { //creates a while loop that works until the height is within the requirements
-    height = Number(prompt("Height: ")); //sets height to a user-inputted value
+    height = Number(prompt("Height: ")); //sets height to a user-inputted number
 
-    if (height === null) { //determines whether a valid height was entered
-      break; //does nothing
-    } else if (Number.isNaN(height)) { //determines whether the height value is a number
+    if (height === null) { //checks whether height does not have a valid value
+      break; //breaks the code out of the while loop
+    } else if (Number.isNaN(height)) { //checks whether the height value is not a number assuming that height has a value
       height = -1; //sets height to -1
-    } else if (!Number.isInteger(height)) { //checks whether the height is an integer
+    } else if (!Number.isInteger(height)) { //checks whether the height is not an integer assuming that height has a numerical value
       height = -1; //sets height to -1
     }
   }
 
-  if (height !== null) {
-    let output = "<code>";
-    let space = "&nbsp;";
-    let block = "#";
+  if (height !== null) { //checks whether a valid height was entered
+    let output = "<code>"; //creates a variable called output with a value that is a code tag
+    let space = "&nbsp;"; //creates a variable called space with a value that is a non-breaking space
+    let block = "#"; //creates a variable called block with a value that is a hashtag
 
-    for (let row = 1; row <= height; row++) {
-      for (let i = 0; i < height - row; i++) {
-        output = output + space;
+    for (let row = 1; row <= height; row++) { //creates a for loop that creates a variable called row and sets it to one and runs until row is greater than height with row increasing by one per iteration
+      for (let i = 0; i < height - row; i++) { //creates a for loop that creates a variable called i and sets it to zero and runs it until i is equal to height minus row with i increasing by one per iteration
+        output = output + space; //the variable space is added to output
       }
-      for (let j = 0; j < row + 1; j++) {
-        output = output + block;
+      for (let j = 0; j < row + 1; j++) { //creates a for loop that creates a variable called j and sets it to zero and runs that code until j is greater than row with j increasing by one per iteration
+        output = output + block; //the variable block is added to output
       }
-      output = output + "<br>";
+      output = output + "<br>"; //a break tag is added to output
     }
-    output = output + "</code>";
+    output = output + "</code>"; //a code tag is added to output
 
-    document.getElementById("mario-easy-output").innerHTML = output;
-  } else {
-    document.getElementById("mario-easy-output").innerHTML = "";
+    document.getElementById("mario-easy-output").innerHTML = output; //output's value is displayed in the html
+  } else { //runs if height does not have a value
+    document.getElementById("mario-easy-output").innerHTML = ""; //nothing is displayed in the html
   }
 
-  check("mario", height);
+  check("mario", height;//the code is checked
 }
 
 /*
  * SOLUTION. Mario, Again.
  */
 
-function marioAgain() {
-  let height = -1;
+function marioAgain() { //creates a function called mario again
+  let height = -1; //creates a variable called height and sets it to -1
 
-  while (height < 1 || height > 23) {
-    height = Number(prompt("Height: "));
+  while (height < 1 || height > 23) { //creates a while loop that runs while height's value is not in the specified range
+    height = Number(prompt("Height: ")); //sets height to a number entered by the user
 
-    if (height === null) {
-      break;
-    } else if (Number.isNaN(height)) {
-      height = -1;
-    } else if (!Number.isInteger(height)) {
-      height = -1;
+    if (height === null) { //checks if height does not have a valid value
+      break; //breaks the code out of the while loop
+    } else if (Number.isNaN(height)) { //checks if height's value is not a number assuming it has a value
+      height = -1; //sets height to -1
+    } else if (!Number.isInteger(height)) { //checks if height's value is not an integer assuming it has a numerical value
+      height = -1; //sets height to -1
     }
   }
 
-  if (height !== null) {
-    let output = "<code>";
-    let space = "&nbsp;";
-    let block = "#";
+  if (height !== null) { //checks if height has a valid value
+    let output = "<code>"; //creates a variable called output and sets its value to a code tag
+    let space = "&nbsp;"; //creates a variable called space and sets its value to non-breaking space
+    let block = "#"; //creates a variable called block and sets its value to a hashtag
 
-    for (let row = 1; row <= height; row++) {
-      for (let i = 0; i < height - row; i++) {
-        output = output + space;
+    for (let row = 1; row <= height; row++) { //creates a for loop that creates a variable called row and sets it to one and runs until row is greater than height with row increasing by one per iteration
+      for (let i = 0; i < height - row; i++) {  //creates a for loop that creates a variable called i and sets it to zero and runs it until i is equal to height minus row with i increasing by one per iteration
+        output = output + space; //adds space's value to output
       }
-      for (let j = 0; j < row + 1; j++) {
-        output = output + block;
+      for (let j = 0; j < row + 1; j++) { //creates a for loop that creates a variable called j and sets it to zero and runs that code until j is greater than row with j increasing by one per iteration
+        output = output + block; //adds block's value to output
       }
-      output = output + space + space;
+      output = output + space + space; //adds two of space's value to output
 
-      for (let k = 0; k < row + 1; k++) {
-        output = output + block;
+      for (let k = 0; k < row + 1; k++) { //creates a for loop that creates a variable called k and sets it to zero and runs that code until k is greater than row with k increasing by one per iteration
+        output = output + block; //adds block's value to output
       }
-      output = output + "<br>";
+      output = output + "<br>"; //adds a break tag to output
     }
-    output = output + "</code>";
+    output = output + "</code>"; //adds a code tag to output
 
-    document.getElementById("mario-hard-output").innerHTML = output;
-  } else {
-    document.getElementById("mario-hard-output").innerHTML = "";
+    document.getElementById("mario-hard-output").innerHTML = output; //displays output's value in the html
+  } else { //executes when height does not have a valid value
+    document.getElementById("mario-hard-output").innerHTML = ""; //does not display anything
   }
 
-  check("mario-again", height);
+  check("mario-again", height); //checks the code
 }
 
 /*
  * SOLUTION. Credit.
  */
 
-function credit() {
-  let card = "invalid";
+function credit() { //creates a function called credit
+  let card = "invalid"; //creates a variable called card and sets it to the word invalid
 
-  while (!Number.isInteger(card)) {
-    card = Number(prompt("Card Number: "));
+  while (!Number.isInteger(card)) { //creates a while loop that executes while card is not an integer
+    card = Number(prompt("Card Number: ")); //sets cards value to a user-generated number
 
-    if (card === null) {
-      break;
+    if (card === null) { //checks if card does not have a valid value
+      break; //breaks the code from the while loop
     }
   }
 
