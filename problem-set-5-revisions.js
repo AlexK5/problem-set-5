@@ -150,26 +150,26 @@ function credit() { //creates a function called credit
             prev.parentNode.removeChild(prev); //removes prev in html
           }
 
-          let visa = document.createElement("img");
-          visa.setAttribute("id", "cc");
-          visa.setAttribute("src", "images/visa.png");
-          visa.setAttribute("width", "25%");
-          document.getElementById("credit-output").innerHTML = "";
-          document.getElementById("credit-output").appendChild(visa);
+          let visa = document.createElement("img"); //creates a variable called visa that is an image
+          visa.setAttribute("id", "cc"); //makes cc the id of visa
+          visa.setAttribute("src", "images/visa.png"); //makes visa's src attribute images/visa.png
+          visa.setAttribute("width", "25%"); //makes visa's width 25 percent of the screen
+          document.getElementById("credit-output").innerHTML = ""; //clears the credit output
+          document.getElementById("credit-output").appendChild(visa); //puts the visa image in the credit output
         }
-      } else if (current === 3 && (previous === 4 || previous === 7)) {
-        if (numDigits === 15) {
-          prev = document.getElementById("cc");
-          if (prev) {
-            prev.parentNode.removeChild(prev);
+      } else if (current === 3 && (previous === 4 || previous === 7)) { //checks if the card starts with 34 or 37
+        if (numDigits === 15) { //checks if the card number has 15 digits
+          prev = document.getElementById("cc"); //sets prev to the element with the id cc
+          if (prev) { //checks if prev is true or a truthy value
+            prev.parentNode.removeChild(prev); //removes prev in html
           }
 
-          let amex = document.createElement("img");
-          amex.setAttribute("id", "cc");
-          amex.setAttribute("src", "images/amex.png");
-          amex.setAttribute("width", "25%");
-          document.getElementById("credit-output").innerHTML = "";
-          document.getElementById("credit-output").appendChild(amex);
+          let amex = document.createElement("img"); //creates a variable called amex and makes it an image
+          amex.setAttribute("id", "cc"); //sets amex's id to cc
+          amex.setAttribute("src", "images/amex.png"); //sets amex's src to images/amex.png
+          amex.setAttribute("width", "25%"); //sets amex's width to 25 percent of the screen
+          document.getElementById("credit-output").innerHTML = ""; //clears credit output
+          document.getElementById("credit-output").appendChild(amex); //adds amex to the credit output
         }
       } else if (current === 5 && previous > 0 && previous < 6) {
         if (numDigits === 16) {
