@@ -204,88 +204,88 @@ function credit() { //creates a function called credit
  * SOLUTION. Guess.
  */
 
-function guess() {
-  let target = Number((Math.random() * 1001).toFixed(0));
-  let guess = -1;
-  let attempts = 0;
+function guess() { //creates a function called guess
+  let target = Number((Math.random() * 1001).toFixed(0)); //creates a variable called target and sets it to a random integer between 1 and 1000
+  let guess = -1; //creates a variable called guess guess and sets it to -1
+  let attempts = 0; //creates a variable called attempts and sets it to 0
 
-  while (guess !== target) {
-    guess = Number(prompt("Guess: "));
+  while (guess !== target) { //executes until the user guesses the right number
+    guess = Number(prompt("Guess: ")); //sets guess to a user-inputted number
 
-    if (guess === null) {
-      break;
-    } else if (Number.isNan(guess)) {
-      guess = -1;
-    } else if (!Number.isInteger(guess)) {
-      guess = -1;
+    if (guess === null) { //checks if guess does not have a value
+      break; //breaks the code from the while loop
+    } else if (Number.isNan(guess)) { //checks if guess does not have a numerical value
+      guess = -1; //sets guess to -1
+    } else if (!Number.isInteger(guess)) { //checks if guess is not an integer
+      guess = -1; //sets guess to -1
     }
 
-    if (guess > 0 && guess < 1001) {
-      attempts++;
+    if (guess > 0 && guess < 1001) { //checks if guess is between 1 and 1000
+      attempts++; //increases attempts's value by one
 
-      if (guess < target) {
-        alert("Try something a little larger...");
-      } else if (guess > target) {
-        alert("Try something a little smaller...");
+      if (guess < target) { //checks if the guess is below the target value
+        alert("Try something a little larger..."); //alerts the user that the target value is higher than their guess
+      } else if (guess > target) { //checks if guess is higher than the target value
+        alert("Try something a little smaller..."); //alerts the user that the target value is lower than their guess
       }
     }
   }
 
-  if (guess !== null) {
-    document.getElementById("guess-output").innerHTML = "Random Number: " + target + "<br>Attempts: " + attempts;
-  } else {
-    document.getElementById("guess-output").innerHTML = "";
+  if (guess !== null) { //ch3ecks if guess has a valid value
+    document.getElementById("guess-output").innerHTML = "Random Number: " + target + "<br>Attempts: " + attempts; //displays the target number and the number of guesses in the html
+  } else { //checks if guess has a null value
+    document.getElementById("guess-output").innerHTML = ""; //clears the output
   }
 
-  check("guess");
+  check("guess"); //checks the code
 }
 
 /*
  * SOLUTION. Hurricane.
  */
 
-function hurricane() {
-  const CAT5 = 156;
-  const CAT4 = 129;
-  const CAT3 = 110;
-  const CAT2 = 95;
-  const CAT1 = 73;
-  const TROP = 38;
+function hurricane() { //creates a function called hurricane
+  const CAT5 = 156; //creates a constant called cat5 whose value is 156
+  const CAT4 = 129; //creates a constant called cat4 whose value is 129
+  const CAT3 = 110; //creates a constant called cat3 whose value is 110
+  const CAT2 = 95; //creates a constant called cat2 whose value is 95
+  const CAT1 = 73; //creates a constant called cat1 whose value is 73
+  const TROP = 38; //creates a constant called trop whose value is 38
 
-  let windspeed = -1;
-  while (windspeed < 0) {
-    windspeed = Number(prompt("Windspeed: "));
+  let windspeed = -1; //creates a variable called windspeed and sets it to -1
+  while (windspeed < 0) { //executes until windspeed has a value of at least zero
+    windspeed = Number(prompt("Windspeed: ")); //sets windspeed to a user-generated number
 
-    if (windspeed === null) {
-      break;
-    } else if (Number.isNaN(windspeed)) {
-      windspeed = -1;
-    } else if (!Number.isInteger(windspeed)) {
-      windspeed = -1;
+    if (windspeed === null) { //checks if windspeed's value is null
+      break; //breaks the code from the while loop
+    } else if (Number.isNaN(windspeed)) { //checks if a non-numerical value was entered
+      windspeed = -1; //sets windspeed to -1
+    } else if (!Number.isInteger(windspeed)) { //checks if windspeed is not an integer
+      windspeed = -1; //sets windspeed to -1
     }
   }
 
-  if (windspeed !== null) {
-    if (windspeed > CAT5) {
-      document.getElementById("hurricane-output").innerHTML = "Category 5 Hurricane.";
-    } else if (windspeed > CAT4) {
-      document.getElementById("hurricane-output").innerHTML = "Category 4 Hurricane.";
-    } else if (windspeed > CAT3) {
-      document.getElementById("hurricane-output").innerHTML = "Category 3 Hurricane.";
-    } else if (windspeed > CAT2) {
-      document.getElementById("hurricane-output").innerHTML = "Category 2 Hurricane.";
-    } else if (windspeed > CAT1) {
-      document.getElementById("hurricane-output").innerHTML = "Category 1 Hurricane.";
-    } else if (windspeed > TROP) {
-      document.getElementById("hurricane-output").innerHTML = "Tropical Storm.";
-    } else {
-      document.getElementById("hurricane-output").innerHTML = "The skies are calm...";
+  if (windspeed !== null) { //checks that windspeed's value is not null
+    if (windspeed > CAT5) { //checks if windspeed is above the threshold for cat5
+      document.getElementById("hurricane-output").innerHTML = "Category 5 Hurricane."; //tells the user that it is a category 5 hurricane in the html
+    } else if (windspeed > CAT4) { //checks if the windspeed is above the threshold for cat4
+      document.getElementById("hurricane-output").innerHTML = "Category 4 Hurricane."; //tells the user that it is a category 4 hurricane in the html
+    } else if (windspeed > CAT3) { //checks if the windspeed is above the threshold for cat3
+      document.getElementById("hurricane-output").innerHTML = "Category 3 Hurricane."; //tells the user that it is a category 3 hurricane in the html
+    } else if (windspeed > CAT2) { //checks if the windspeed is above the threshold for cat2
+      document.getElementById("hurricane-output").innerHTML = "Category 2 Hurricane."; //tells the user that it is a category 2 hurricane in the html
+    } else if (windspeed > CAT1) { //checks if the windspeed is above the threshold for cat1
+      document.getElementById("hurricane-output").innerHTML = "Category 1 Hurricane."; //tells the user that it is a category 1 hurricane in the html
+    } else if (windspeed > TROP) { //checks if the windspeed is above the threshold for trop
+      document.getElementById("hurricane-output").innerHTML = "Tropical Storm."; //tells the user that it is a tropical storm in the html
+    } else { //checks if the windspeed was not high enough to be a tropical storm or hurricane
+      document.getElementById("hurricane-output").innerHTML = "The skies are calm..."; //tells the user that the skies are calm in the html
     }
-  } else {
-    document.getElementById("hurricane-output").innerHTML = "";
+  } else { //checks if windspeed is a null value
+    document.getElementById("hurricane-output").innerHTML = ""; //clears the output
   }
 
-  check("hurricane", windspeed);
+  check("hurricane", windspeed); //checks the hurricane function
 }
 
 /*
