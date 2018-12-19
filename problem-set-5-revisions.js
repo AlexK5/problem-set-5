@@ -171,33 +171,33 @@ function credit() { //creates a function called credit
           document.getElementById("credit-output").innerHTML = ""; //clears credit output
           document.getElementById("credit-output").appendChild(amex); //adds amex to the credit output
         }
-      } else if (current === 5 && previous > 0 && previous < 6) {
-        if (numDigits === 16) {
-          prev = document.getElementById("cc");
-          if (prev) {
-            prev.parentNode.removeChild(prev);
+      } else if (current === 5 && previous > 0 && previous < 6) { //checks if the credit card number starts with 51, 52, 53, 54, or 55
+        if (numDigits === 16) { //checks if the card number has 16 digits
+          prev = document.getElementById("cc"); //sets prev to the html element with the id "cc"
+          if (prev) { //checks if prev is true or truthy
+            prev.parentNode.removeChild(prev); //removes prev in html
           }
 
-          var mc = document.createElement("img");
-          mc.setAttribute("id", "cc");
-          mc.setAttribute("src", "images/mastercard.png");
-          mc.setAttribute("width", "25%");
-          document.getElementById("credit-output").innerHTML = "";
-          document.getElementById("credit-output").appendChild(mc);
+          var mc = document.createElement("img"); //creates a variable called mc that is an image
+          mc.setAttribute("id", "cc"); //makes mc's id cc
+          mc.setAttribute("src", "images/mastercard.png"); //makes mc's src attribute images/mastercard.png
+          mc.setAttribute("width", "25%"); //makes mc's width 25 percent of the screen
+          document.getElementById("credit-output").innerHTML = ""; //clears the output
+          document.getElementById("credit-output").appendChild(mc); //places mc in the output
         }
       }
-    } else {
-      document.getElementById("credit-output").innerHTML = "Invalid.";
+    } else { //checks if the card number is not valid for visa, amex, or mastercard
+      document.getElementById("credit-output").innerHTML = "Invalid."; //prints the word invalid in the output html
     }
-  } else {
-    prev = document.getElementById("cc");
-    if (prev) {
-      prev.parentNode.removeChild(prev);
+  } else { //checks if card does not have a valid value
+    prev = document.getElementById("cc"); //sets prev to the html element with the id cc
+    if (prev) { //checks if prev is true or truthy
+      prev.parentNode.removeChild(prev); //removes prev from the html
     }
-    document.getElementById("credit-output").innerHTML = "";
+    document.getElementById("credit-output").innerHTML = ""; //clears the output
   }
 
-  check("credit", card);
+  check("credit", card); //checks the function
 }
 
 /*
