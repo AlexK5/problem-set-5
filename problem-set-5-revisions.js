@@ -292,128 +292,128 @@ function hurricane() { //creates a function called hurricane
  * SOLUTION. Gymnastics.
  */
 
-function gymnastics() {
-  let total = 0;
-  let scores = [];
-  let valid = 0;
-  let max = -1;
-  let min = 11;
-  let score = -1;
+function gymnastics() { //creates a function called gymnastics
+  let total = 0; //creates a variable called total and sets it to zero
+  let scores = []; //creates a variable called scores and makes it an empty array
+  let valid = 0; //creates a variable called valid and sets it to zero
+  let max = -1; //creates a variable called max and sets it to -1
+  let min = 11; //creates a variable called min and sets it to 11
+  let score = -1; //creates a variable called score and sets it to -1
 
-  while (valid < 6) {
-    score = Number(prompt("Score: "));
+  while (valid < 6) { //executes while valid is less than 6
+    score = Number(prompt("Score: ")); //sets score to a user-generated number
 
-    if (score === null) {
-      break;
-    } else if (Number.isNaN(score)) {
-      score = -1;
+    if (score === null) { //checks if score is null
+      break; //breaks the code out of the while loop
+    } else if (Number.isNaN(score)) { //checks if score is not a number
+      score = -1; //sets score to -1
     }
 
-    if (score >= 0 && score <= 10) {
-      valid++;
-      scores.push(score);
+    if (score >= 0 && score <= 10) { //checks that score is within the valid range
+      valid++; //increases valid by one
+      scores.push(score); //adds score to the array called scores
 
-      if (score < min) {
-        min = score;
+      if (score < min) { //checks if score is below the min
+        min = score; //sets min to score
       }
-      if (score > max) {
-        max = score;
+      if (score > max) { //checks if score is above the max
+        max = score; //sets max to score
       }
-      total = total + score;
+      total = total + score; //increases total by score
     }
   }
 
-  if (score !== null) {
-    let sum = total;
-    sum = sum - min - max;
-    let average = (sum / 4.0).toFixed(2);
+  if (score !== null) { //checks if score is not null
+    let sum = total; //creates a variable called sum and sets it to total
+    sum = sum - min - max; //subtracts min and max from sum
+    let average = (sum / 4.0).toFixed(2); //creates a variable called average and sets it to the average of the middle scores and rounds to two decimal places
 
-    let result = `Discarded: ${min}, ${max}<br>Score: ${average}`;
-    document.getElementById("gymnastics-output").innerHTML = result;
-  } else {
-    scores = null;
-    document.getElementById("gymnastics-output").innerHTML = "";
+    let result = `Discarded: ${min}, ${max}<br>Score: ${average}`; //creates a variable called result which consists of what will be outputted
+    document.getElementById("gymnastics-output").innerHTML = result; //adds result to the output html
+  } else { //checks if score is null
+    scores = null; //sets scores to null
+    document.getElementById("gymnastics-output").innerHTML = ""; //clears the output
   }
 
-  check("gymnastics", scores);
+  check("gymnastics", scores); //checks the gymnastics function
 }
 
 /*
  * SOLUTION. Report Card.
  */
 
-function reportCard() {
-  let testTotal = 0;
-  let quizTotal = 0;
-  let homeworkTotal = 0;
-  let tests = 0;
-  let quizzes = 0;
-  let homeworks = 0;
+function reportCard() { //creates a function called report card
+  let testTotal = 0; //creates a variable called testtotal and sets it to zero
+  let quizTotal = 0; //creates a variable called quiztotal and sets it to zero
+  let homeworkTotal = 0; //creates a variable called homeworktotal and sets it to zero
+  let tests = 0; //creates a variable called tests and sets it to zero
+  let quizzes = 0; //creates a variable called quizzes and sets it to zero
+  let homeworks = 0; //creates a variable called homeworks and sets it to zero
 
-  let testScore = -2;
-  while (testScore !== -1) {
-    testScore = Number(prompt("Test: "));
+  let testScore = -2; //creates a variable called testscore and sets it to -2
+  while (testScore !== -1) { //executes while testscore is not equal to -1
+    testScore = Number(prompt("Test: ")); //sets testscore to a user-inputted value
 
-    if (testScore === null) {
-      break;
-    } else if (Number.isNaN(testScore)) {
-      testScore = -2;
-    } else if (testScore === -1) {
-       break;
-    } else if (testScore >= 0 && testScore <= 100) {
-      tests++;
-      testTotal = testTotal + testScore;
+    if (testScore === null) { //checks if testscore is null
+      break; //breaks out of the while loop
+    } else if (Number.isNaN(testScore)) { //checks if testscore is not a number
+      testScore = -2; //sets testscore to -2
+    } else if (testScore === -1) { //checks if testscore is equal to -1
+       break; //breaks out of the while loop
+    } else if (testScore >= 0 && testScore <= 100) { //checks that testscore is between 0 and 100
+      tests++; //increases tests by one
+      testTotal = testTotal + testScore; //increases testtotal by testscore
     }
   }
 
-  let quizScore = -2;
-  while (quizScore !== -1) {
-    quizScore = Number(prompt("Quiz: "));
+  let quizScore = -2; //creates a variable called quizscore and sets it to -2
+  while (quizScore !== -1) { //executes while quizscore is not equal to -1
+    quizScore = Number(prompt("Quiz: ")); //sets quizscore to a user-inputted number
 
-    if (quizScore === null) {
-      break;
-    } else if (Number.isNaN(quizScore)) {
-      quizScore = -2;
-    } else if (quizScore === -1) {
-       break;
-    } else if (quizScore >= 0 && quizScore <= 100) {
-      quizzes++;
-      quizTotal = quizTotal + quizScore;
+    if (quizScore === null) { //checks if quizscore is null
+      break; //breaks out of the while loop
+    } else if (Number.isNaN(quizScore)) { //checks if quizscore is not a number
+      quizScore = -2; //sets quizscore to -2
+    } else if (quizScore === -1) { //checks if quizscore is equal to -1
+       break; //breaks out of the while loop
+    } else if (quizScore >= 0 && quizScore <= 100) { //checks that quizscore is between 0 and 100
+      quizzes++; //increases quizzes by one
+      quizTotal = quizTotal + quizScore; //increases quiztotal by quizscore
     }
   }
 
-  let homeworkScore = -2;
-  while (homeworkScore !== -1) {
-    homeworkScore = Number(prompt("Homework: "));
+  let homeworkScore = -2; //creates a variable called homeworkscore and sets it to -2
+  while (homeworkScore !== -1) { //executes while homeworkscore is not equal to -1
+    homeworkScore = Number(prompt("Homework: ")); //sets homeworkscore to a user-inputted number
 
-    if (homeworkScore === null) {
-      break;
-    } else if (Number.isNaN(homeworkScore)) {
-      homeworkScore = -2;
-    } else if (homeworkScore === -1) {
-       break;
-    } else if (homeworkScore >= 0 && homeworkScore <= 100) {
-      homeworks++;
-      homeworkTotal = homeworkTotal + homeworkScore;
+    if (homeworkScore === null) { //checks if homeworkscore is null
+      break; //breaks out of the while loop
+    } else if (Number.isNaN(homeworkScore)) { //checks if homeworkscore is not a number
+      homeworkScore = -2; //sets homeworkscore to -2
+    } else if (homeworkScore === -1) { //checks if homeworkscore is equal to -1
+       break; //breaks out of the while loop
+    } else if (homeworkScore >= 0 && homeworkScore <= 100) { //checks that homeworkscore is between 0 and 100
+      homeworks++; //increases homeworks by one
+      homeworkTotal = homeworkTotal + homeworkScore; //increases homeworktotal by homeworkscore
     }
   }
 
-  let testAverage = null;
-  let quizAverage = null;
-  let homeworkAverage = null;
-  let average = null;
+  let testAverage = null; //creates a variable called testaverage and makes it null
+  let quizAverage = null; //creates a variable called quizaverage and makes it null
+  let homeworkAverage = null; //creates a variable called homeworkaverage and makes it null
+  let average = null; //creates a variable called average and makes it null
 
-  if (testScore === null || quizScore === null || homeworkScore === null) {
-    document.getElementById("report-card-output").innerHTML = "";
-  } else {
-    testAverage = (testTotal / tests).toFixed(2);
-    quizAverage = (quizTotal / quizzes).toFixed(2);
-    homeworkAverage = (homeworkTotal / homeworks).toFixed(2);
-    average = (testAverage * 0.6 + quizAverage * 0.3 + homeworkAverage * 0.1).toFixed(2);
+  if (testScore === null || quizScore === null || homeworkScore === null) { //checks if either testaverage, quizaverage, or homeworkaverage is null
+    document.getElementById("report-card-output").innerHTML = ""; //clears the output
+  } else { //checks that testaverage, quizaverage, and homeworkaverage all have values that are not null
+    testAverage = (testTotal / tests).toFixed(2); //sets test average to testtotal divided by tests rounded to two decimal places
+    quizAverage = (quizTotal / quizzes).toFixed(2); //sets quiz average to quiz total divided by quizzes rounded to two decimal places
+    homeworkAverage = (homeworkTotal / homeworks).toFixed(2); //sets homeworkaverage to homeworktotal divided by homeworks rounded to two decimal places
+    average = (testAverage * 0.6 + quizAverage * 0.3 + homeworkAverage * 0.1).toFixed(2); //sets average to a weighted average of testaverage, quizaverage, and homeworkaverage with testaverage counting for 60%, quizaverage counting for 30%, and homeworkaverage counting for 10%, rounded to two decimal places
 
-    let result = `Tests: ${testAverage}<br>Quizzes: ${quizAverage}<br>Homework: ${homeworkAverage}<br>Grade: ${average}`;
-    document.getElementById("report-card-output").innerHTML = result;
+    let result = `Tests: ${testAverage}<br>Quizzes: ${quizAverage}<br>Homework: ${homeworkAverage}<br>Grade: ${average}`; //sets result to what will be displayed in the html
+    document.getElementById("report-card-output").innerHTML = result; //displays the averages in the output html
   }
 
-  check("report-card", testTotal, tests, quizTotal, quizzes, homeworkTotal, homeworks);
+  check("report-card", testTotal, tests, quizTotal, quizzes, homeworkTotal, homeworks); //checks the report card function
 }
